@@ -1,10 +1,12 @@
 import React from 'react'
+import ItemMove from './ItemMove'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => {
   return (
-    <div className='form-group'>
-      <input className='form-control'/>
+    <div className="container-fluid">
+      <ItemMove/>
+      <h4>在庫一覧</h4>
     </div>
   );
 }
