@@ -1,9 +1,10 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => {
   return (
-    <div>
-      template
+    <div className='form-group'>
+      <input className='form-control'/>
     </div>
   );
 }
