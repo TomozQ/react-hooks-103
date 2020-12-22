@@ -1,12 +1,13 @@
 import React from 'react'
 import ItemMove from './ItemMove'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Items from './Items'
 
 const App = () => {
   return (
     <div className="container-fluid">
       <ItemMove/>
-      <h4>在庫一覧</h4>
+      <Items/>
     </div>
   );
 }
