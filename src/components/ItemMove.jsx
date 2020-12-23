@@ -1,13 +1,13 @@
 import React, { useReducer, useState } from 'react'
 import reducer from '../reducers/index'
+import AppContext from '../contexts/AppContext'
 
 import {
     SHIPMENT_ITEM,
     INSTOCK_ITEM,
 }from '../actions/index'
 
-const ItemMove = () => {
-    const [ state, dispatch ] = useReducer( reducer, [] )
+const ItemMove = ({ state, dispatch }) => {
     const [ item, setItem ] = useState('')
 
     const shipmentItem = e => {
@@ -25,6 +25,7 @@ const ItemMove = () => {
             type: INSTOCK_ITEM,
             item,
         })
+        setItem('')
     }
 
     return (
