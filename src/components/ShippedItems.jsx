@@ -1,8 +1,6 @@
-import React, { useContext } from 'react'
-import AppContext from '../contexts/AppContext'
+import React from 'react'
 
 const ShippedItems = ({ state, dispatch }) => {
-    const value = useContext(AppContext)
 
     return (
         <>

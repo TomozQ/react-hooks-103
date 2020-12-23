@@ -9,7 +9,7 @@ import reducer from '../reducers/index'
 const App = () => {
   const [ state, dispatch ] = useReducer( reducer, [] )
   return (
-    <AppContext.Provider value={ 'Hello, Iam Provider' }>
+    <AppContext.Provider>
       <div className="container-fluid">
         <ItemMove state={ state } dispatch={ dispatch } />
         <StockItems state={ state } dispatch={ dispatch } />
