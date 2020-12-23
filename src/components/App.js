@@ -1,13 +1,15 @@
 import React from 'react'
 import ItemMove from './ItemMove'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Items from './Items'
+import StockItems from './StockItems'
+import ShippedItems from './ShippedItems'
 
 const App = () => {
   return (
     <div className="container-fluid">
       <ItemMove/>
-      <Items/>
+      <StockItems/>
+      <ShippedItems/>
     </div>
   );
 }
