@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AppContext from '../contexts/AppContext'
+import StockItem from './StockItem'
 
-const StockItems = () => {
+const StockItems = ({ state, dispatch }) => {
+    const value = useContext(AppContext)
     return (
         <>
             <h4>在庫一覧</h4>
@@ -13,11 +16,7 @@ const StockItems = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>アウター</td>
-                        <td><button>取消</button></td>
-                        <td></td>
-                    </tr>
+                    {state.map((stockitem, index) => (<StockItem key={ index } stockitem={ stockitem } dispatch={ dispatch }/>))}
                 </tbody>
             </table>
         </>
