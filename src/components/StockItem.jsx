@@ -10,9 +10,10 @@ const StockItem = ({ stockitem, id, dispatch, }) => {
     return (
         <>
             <tr>
+                <td>{ id }</td>    
                 <td>{ stockitem }</td>
-                <td></td>    
-                <td><button onClick={ handleClickDeleteButton }>キャンセル</button></td>
+                <td></td>
+                <td><button type="button" class="btn btn-outline-warning" onClick={ handleClickDeleteButton }>キャンセル</button></td>
             </tr>  
         </>
     )
