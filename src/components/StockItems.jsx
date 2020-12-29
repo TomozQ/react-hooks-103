@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import AppContext from '../contexts/AppContext'
+import React from 'react'
 import StockItem from './StockItem'
 
 const StockItems = ({ state, dispatch }) => {
-    const value = useContext(AppContext)
+    // console.log('STOCKITEMS: ' + state)
     return (
         <>
             <h4>在庫一覧</h4>
@@ -16,7 +15,13 @@ const StockItems = ({ state, dispatch }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {state.map((stockitem, index) => (<StockItem key={ index } stockitem={ stockitem } dispatch={ dispatch }/>))}
+                    {state.map((item, index) => {
+                        if(item.instockflag === 'instock'){
+                            return(
+                                <StockItem key={ index } stockitem={ item.stockitem } dispatch={ dispatch }/>
+                            )
+                        }
+                    })}
                 </tbody>
             </table>
         </>

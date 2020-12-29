@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import AppContext from '../contexts/AppContext'
+import React from 'react'
+import ShippedItem from './ShippedItem'
 
 const ShippedItems = ({ state, dispatch }) => {
-    const value = useContext(AppContext)
-
+    // console.log('SHIPPEDITEMS: ' + state.shippeditem)
     return (
         <>
             <h4>出荷済み一覧</h4>
@@ -16,11 +15,13 @@ const ShippedItems = ({ state, dispatch }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>アウター</td>
-                        <td><button>取消</button></td>
-                        <td></td>
-                    </tr>
+                    {state.map((item, index) => {
+                        if(item.shipmentflag === 'shipment'){
+                            return(
+                                <ShippedItem key={ index } shippeditem={ item.shippeditem } dispatch={ dispatch }/>
+                            )
+                        }
+                    })}
                 </tbody>
             </table>
         </>

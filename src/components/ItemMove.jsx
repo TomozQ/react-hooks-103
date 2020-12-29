@@ -1,13 +1,12 @@
-import React, { useReducer, useState } from 'react'
-import reducer from '../reducers/index'
-import AppContext from '../contexts/AppContext'
+import React, { useState } from 'react'
+
 
 import {
     SHIPMENT_ITEM,
     INSTOCK_ITEM,
 }from '../actions/index'
 
-const ItemMove = ({ state, dispatch }) => {
+const ItemMove = ({ dispatch }) => {
     const [ item, setItem ] = useState('')
 
     const shipmentItem = e => {
@@ -15,6 +14,7 @@ const ItemMove = ({ state, dispatch }) => {
         dispatch({
             type: SHIPMENT_ITEM,
             item,
+            flag: 'shipment'
         })
         setItem('')
     }
@@ -24,6 +24,7 @@ const ItemMove = ({ state, dispatch }) => {
         dispatch({
             type: INSTOCK_ITEM,
             item,
+            flag: 'instock'
         })
         setItem('')
     }
