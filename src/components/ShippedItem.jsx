@@ -1,18 +1,17 @@
 import React from 'react'
-import { CANSEL_STOCKITEM } from '../actions/index'
+import { CANSEL_SHIPPEDITEM } from '../actions/index'
 
 
-const StockItem = ({ stockitem, dispatch }) => {
-    const id = stockitem.stockid
+const ShippedItem = ({ shippeditem, dispatch }) => {
+    const id = shippeditem.shippedid
     const handleClickDeleteButton = () => {
         const result = window.confirm(`${id}の商品の移動をキャンセルしますか？`)
-        if( result )dispatch({ type: CANSEL_STOCKITEM, id })
+        if( result )dispatch({ type: CANSEL_SHIPPEDITEM, id })
     }
-    // console.log(stockitem)
     return (
         <>
             <tr>
-                <td>{ stockitem }</td>
+                <td>{ shippeditem }</td>    
                 <td></td>    
                 <td><button onClick={ handleClickDeleteButton }>キャンセル</button></td>
             </tr>  
@@ -20,4 +19,4 @@ const StockItem = ({ stockitem, dispatch }) => {
     )
 }
 
-export default StockItem
+export default ShippedItem
