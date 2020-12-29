@@ -18,7 +18,7 @@ const StockItems = ({ state, dispatch }) => {
                     {state.map((item, index) => {
                         if(item.instockflag === 'instock'){
                             return(
-                                <StockItem key={ index } stockitem={ item.stockitem } dispatch={ dispatch }/>
+                                <StockItem key={ index } stockitem={ item.stockitem } id={ item.stockid } dispatch={ dispatch }/>
                             )
                         }
                     })}

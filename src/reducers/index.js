@@ -1,8 +1,8 @@
 import {
     SHIPMENT_ITEM,
     INSTOCK_ITEM,
-    CANSEL_STOCKITEM,
-    CANSEL_SHIPPEDITEM,
+    CANCEL_STOCKITEM,
+    CANCEL_SHIPPEDITEM,
 } from '../actions/index'
 
 const items = ( state=[], action ) => {
@@ -21,11 +21,11 @@ const items = ( state=[], action ) => {
             const stockid = stocklength === 0 ? 1 : stocklength + 1
             return [ ...state, { stockid, ...stockitem, instockflag }]
 
-        case CANSEL_STOCKITEM:
-            return state.filter( item => item.stockid !== action.stockid )
+        case CANCEL_STOCKITEM:
+            return state.filter( item => item.stockid !== action.id )
 
-        case CANSEL_SHIPPEDITEM:
-            return state.filter( item => item.shippedid !== action.shippedid )
+        case CANCEL_SHIPPEDITEM:
+            return state.filter( item => item.shippedid !== action.id )
 
         default:
             return state
