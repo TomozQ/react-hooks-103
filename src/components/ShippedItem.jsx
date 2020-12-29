@@ -10,9 +10,10 @@ const ShippedItem = ({ shippeditem, id, dispatch }) => {
     return (
         <>
             <tr>
-                <td>{ shippeditem }</td>    
-                <td></td>    
-                <td><button onClick={ handleClickDeleteButton }>キャンセル</button></td>
+                <td>{ id }</td>
+                <td>{ shippeditem }</td>
+                <td></td>
+                <td><button type="button" class="btn btn-outline-warning" onClick={ handleClickDeleteButton }>キャンセル</button></td>
             </tr>  
         </>
     )
