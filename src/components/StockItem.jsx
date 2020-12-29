@@ -1,14 +1,12 @@
 import React from 'react'
-import { CANSEL_STOCKITEM } from '../actions/index'
+import { CANCEL_STOCKITEM } from '../actions/index'
 
 
-const StockItem = ({ stockitem, dispatch }) => {
-    const id = stockitem.stockid
+const StockItem = ({ stockitem, id, dispatch, }) => {
     const handleClickDeleteButton = () => {
         const result = window.confirm(`${id}の商品の移動をキャンセルしますか？`)
-        if( result )dispatch({ type: CANSEL_STOCKITEM, id })
+        if( result )dispatch({ type: CANCEL_STOCKITEM, id })
     }
-    // console.log(stockitem)
     return (
         <>
             <tr>

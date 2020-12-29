@@ -18,7 +18,7 @@ const ShippedItems = ({ state, dispatch }) => {
                     {state.map((item, index) => {
                         if(item.shipmentflag === 'shipment'){
                             return(
-                                <ShippedItem key={ index } shippeditem={ item.shippeditem } dispatch={ dispatch }/>
+                                <ShippedItem key={ index } shippeditem={ item.shippeditem } id={ item.shippedid } dispatch={ dispatch }/>
                             )
                         }
                     })}
