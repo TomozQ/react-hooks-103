@@ -14,6 +14,7 @@ const ItemMove = ({ dispatch }) => {
         dispatch({
             type: SHIPMENT_ITEM,
             item,
+            flag: 'shipment'
         })
         setItem('')
     }
@@ -23,6 +24,7 @@ const ItemMove = ({ dispatch }) => {
         dispatch({
             type: INSTOCK_ITEM,
             item,
+            flag: 'instock'
         })
         setItem('')
     }
