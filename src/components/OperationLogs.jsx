@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AppContext from '../contexts/AppContext'
 import OperationLog from './OperationLog'
 
-const OperationLogs = ({ state }) => {
+const OperationLogs = () => {
+    const { state } = useContext(AppContext)
     return (
         <>
             <h4>操作ログ一覧</h4>
