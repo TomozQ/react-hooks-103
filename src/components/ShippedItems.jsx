@@ -2,7 +2,6 @@ import React from 'react'
 import ShippedItem from './ShippedItem'
 
 const ShippedItems = ({ state, dispatch }) => {
-    // console.log('SHIPPEDITEMS: ' + state.shippeditem)
     return (
         <>
             <h4>出荷済み一覧</h4>
@@ -16,10 +15,10 @@ const ShippedItems = ({ state, dispatch }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {state.map((item, index) => {
+                    {state.items.map((item, index) => {
                         if(item.shipmentflag === 'shipment'){
                             return(
-                                <ShippedItem key={ index } shippeditem={ item.shippeditem } id={ item.shippedid } dispatch={ dispatch }/>
+                                <ShippedItem key={ index } shippeditem={ item.shippeditem } id={ item.shippedid } time={ item.shipmentTime } dispatch={ dispatch }/>
                             )
                         }
                     })}

@@ -4,7 +4,11 @@ import React, { useState } from 'react'
 import {
     SHIPMENT_ITEM,
     INSTOCK_ITEM,
+    ADD_OPERATION_LOG,
+    DELETE_ALL_OPERATION_LOGS,
 }from '../actions/index'
+
+import { timeCurrentIso8601 } from '../utils'
 
 const ItemMove = ({ dispatch }) => {
     const [ item, setItem ] = useState('')
@@ -16,6 +20,11 @@ const ItemMove = ({ dispatch }) => {
             item,
             flag: 'shipment'
         })
+        dispatch({
+            type: ADD_OPERATION_LOG,
+            description: `${ item }を出荷しました`,
+            operatedAt: timeCurrentIso8601()
+        })
         setItem('')
     }
 
@@ -25,6 +34,11 @@ const ItemMove = ({ dispatch }) => {
             type: INSTOCK_ITEM,
             item,
             flag: 'instock'
+        })
+        dispatch({
+            type: ADD_OPERATION_LOG,
+            description: `${ item }を入荷しました`,
+            operatedAt: timeCurrentIso8601()
         })
         setItem('')
     }

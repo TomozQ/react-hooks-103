@@ -16,10 +16,10 @@ const StockItems = ({ state, dispatch }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {state.map((item, index) => {
+                    {state.items.map((item, index) => {
                         if(item.instockflag === 'instock'){
                             return(
-                                <StockItem key={ index } stockitem={ item.stockitem } id={ item.stockid } dispatch={ dispatch }/>
+                                <StockItem key={ index } stockitem={ item.stockitem } id={ item.stockid } time={ item.stockTime } dispatch={ dispatch }/>
                             )
                         }
                     })}
