@@ -11,7 +11,7 @@ import {
 
 import { timeCurrentIso8601 } from '../utils'
 
-const ItemMove = ({ dispatch }) => {
+const ItemMove = ({ state, dispatch }) => {
     const [ item, setItem ] = useState('')
 
     const shipmentItem = e => {
@@ -63,6 +63,8 @@ const ItemMove = ({ dispatch }) => {
         if(result)dispatch({ type: DELETE_ALL_OPERATION_LOGS })
     }
 
+    const unCreatable = item === ''
+
     return (
         <>
             <h4>在庫移動</h4>
@@ -71,11 +73,11 @@ const ItemMove = ({ dispatch }) => {
                     <label>商品</label>
                     <input className='form-control' value={ item } onChange={ e => setItem( e.target.value )}/>
                 </form>
-                <button className='btn btn-primary' onClick={ shipmentItem }>出荷</button>
-                <button className='btn btn-success' onClick={ inStockItem }>入荷</button>
+                <button className='btn btn-primary' onClick={ shipmentItem } disabled={ unCreatable }>出荷</button>
+                <button className='btn btn-success' onClick={ inStockItem } disabled={ unCreatable }>入荷</button>
             </div>
-            <button className='btn btn-outline-danger' onClick={ cancelOperation }>全ての操作をキャンセルする</button>
-            <button className='btn btn-outline-danger' onClick={ cancelLogs }>全ての操作ログを削除する</button>
+            <button className='btn btn-outline-danger' onClick={ cancelOperation } disabled={ state.items.length === 0 }>全ての操作をキャンセルする</button>
+            <button className='btn btn-outline-danger' onClick={ cancelLogs } disabled={ state.operationLogs.length === 0 }>全ての操作ログを削除する</button>
         </>
     )
 }

@@ -8,7 +8,7 @@ import { timeCurrentIso8601 } from '../utils'
 
 const ShippedItem = ({ shippeditem, id, time, dispatch }) => {
     const handleClickDeleteButton = () => {
-        const result = window.confirm(`${id}の商品の移動をキャンセルしますか？`)
+        const result = window.confirm(`${ shippeditem }の移動をキャンセルしますか？`)
         if( result ){
             dispatch({ type: CANCEL_SHIPPEDITEM, id })
             dispatch({ 
