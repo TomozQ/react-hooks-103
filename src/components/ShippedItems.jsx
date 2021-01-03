@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AppContext from '../contexts/AppContext'
 import ShippedItem from './ShippedItem'
 
-const ShippedItems = ({ state, dispatch }) => {
+const ShippedItems = () => {
+    const { state, dispatch } = useContext(AppContext)
     return (
         <>
             <h4>出荷済み一覧</h4>

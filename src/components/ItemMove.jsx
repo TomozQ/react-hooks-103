@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 
 import {
@@ -8,10 +8,12 @@ import {
     DELETE_ALL_OPERATION_LOGS,
     ALL_MOVE_CANCEL,
 }from '../actions/index'
+import AppContext from '../contexts/AppContext'
 
 import { timeCurrentIso8601 } from '../utils'
 
-const ItemMove = ({ state, dispatch }) => {
+const ItemMove = () => {
+    const { state, dispatch } = useContext(AppContext)
     const [ item, setItem ] = useState('')
 
     const shipmentItem = e => {

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AppContext from '../contexts/AppContext'
 import StockItem from './StockItem'
 
-const StockItems = ({ state, dispatch }) => {
-    // console.log('STOCKITEMS: ' + state)
+const StockItems = () => {
+    const { state, dispatch } = useContext( AppContext )
     return (
         <>
             <h4>在庫一覧</h4>
