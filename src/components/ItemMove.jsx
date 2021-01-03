@@ -6,6 +6,7 @@ import {
     INSTOCK_ITEM,
     ADD_OPERATION_LOG,
     DELETE_ALL_OPERATION_LOGS,
+    ALL_MOVE_CANCEL,
 }from '../actions/index'
 
 import { timeCurrentIso8601 } from '../utils'
@@ -43,6 +44,25 @@ const ItemMove = ({ dispatch }) => {
         setItem('')
     }
 
+    const cancelOperation = e => {
+        e.preventDefault()
+        const opeResult = window.confirm('全ての操作をキャンセルしてもよいですか？')
+        if(opeResult){
+            dispatch({ type: ALL_MOVE_CANCEL })
+            dispatch({
+                type: ADD_OPERATION_LOG,
+                description: '全ての操作をキャンセルしました',
+                operatedAt: timeCurrentIso8601()
+            })
+        }
+    }
+
+    const cancelLogs = e => {
+        e.preventDefault()
+        const result = window.confirm('全ての操作ログを削除してもよいですか？')
+        if(result)dispatch({ type: DELETE_ALL_OPERATION_LOGS })
+    }
+
     return (
         <>
             <h4>在庫移動</h4>
@@ -51,9 +71,11 @@ const ItemMove = ({ dispatch }) => {
                     <label>商品</label>
                     <input className='form-control' value={ item } onChange={ e => setItem( e.target.value )}/>
                 </form>
-                <button className='btn btn-danger' onClick={ shipmentItem }>出荷</button>
+                <button className='btn btn-primary' onClick={ shipmentItem }>出荷</button>
                 <button className='btn btn-success' onClick={ inStockItem }>入荷</button>
             </div>
+            <button className='btn btn-outline-danger' onClick={ cancelOperation }>全ての操作をキャンセルする</button>
+            <button className='btn btn-outline-danger' onClick={ cancelLogs }>全ての操作ログを削除する</button>
         </>
     )
 }

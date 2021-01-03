@@ -1,11 +1,23 @@
 import React from 'react'
-import { CANCEL_SHIPPEDITEM } from '../actions/index'
+import { 
+    CANCEL_SHIPPEDITEM,
+    ADD_OPERATION_LOG
+} from '../actions/index'
 
+import { timeCurrentIso8601 } from '../utils'
 
 const ShippedItem = ({ shippeditem, id, time, dispatch }) => {
     const handleClickDeleteButton = () => {
         const result = window.confirm(`${id}の商品の移動をキャンセルしますか？`)
-        if( result )dispatch({ type: CANCEL_SHIPPEDITEM, id })
+        if( result ){
+            dispatch({ type: CANCEL_SHIPPEDITEM, id })
+            dispatch({ 
+                type: ADD_OPERATION_LOG,
+                description: `${ shippeditem }の出荷処理をキャンセルしました`,
+                operatedAt: timeCurrentIso8601()
+            })
+        }
+            
     }
     return (
         <>

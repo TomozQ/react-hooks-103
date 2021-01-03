@@ -3,6 +3,7 @@ import {
     INSTOCK_ITEM,
     CANCEL_STOCKITEM,
     CANCEL_SHIPPEDITEM,
+    ALL_MOVE_CANCEL,
 } from '../actions/index'
 
 import { timeCurrentIso8601 } from '../utils'
@@ -30,6 +31,9 @@ const items = ( state=[], action ) => {
 
         case CANCEL_SHIPPEDITEM:
             return state.filter( item => item.shippedid !== action.id )
+
+        case ALL_MOVE_CANCEL:
+            return []
 
         default:
             return state
